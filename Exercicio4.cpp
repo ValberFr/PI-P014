@@ -66,6 +66,23 @@ void atualizarTituloLivro(vector<Livro>& biblioteca) {
     cout << "Livro nao encontrado!\n";
 }
 
+void removerLivro(vector<Livro>& biblioteca) {
+    cout << "\n=== Removendo Livro ===";
+    string titulo;
+    cout << "\nDigite o titulo do livro a ser removido: ";
+    cin.ignore();
+    getline(cin, titulo);
+    for (auto it = biblioteca.begin(); it != biblioteca.end(); ++it) {
+        if (it->titulo == titulo) {
+            biblioteca.erase(it);
+            cout << "Livro removido com sucesso!\n";
+            return;  // Encerra a função quando o livro é removido
+        }
+    }
+    cout << "Livro nao encontrado!\n";
+}
+
+
 int main() {
     vector<Livro> biblioteca;
 

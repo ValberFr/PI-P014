@@ -2,27 +2,32 @@
 #include <string>
 using namespace std;
 
-// Struct para representar uma CPU (Processador)
+
 struct CPU {
     string marca;
     int nucleos;
     double frequencia; 
 };
 
-// Struct para representar uma Memoria RAM
+
 struct RAM {
     string tipo;
-    int capacidade; // Capacidade em GB
+    int capacidade; 
 };
 
-// Struct para representar um dispositivo de Armazenamento (HD/SSD)
+
 struct Armazenamento {
     string tipo;
-    int capacidade; // Capacidade em GB
+    int capacidade; 
+};
+
+struct SistemaOperacional {
+    string nome;
+    string versao;
 };
 
 
-// Struct principal que combina todas as anteriores para formar um Compu
+
 struct Computador {
     CPU processador;
     RAM memoria;
