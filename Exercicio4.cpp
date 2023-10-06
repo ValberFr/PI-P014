@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// Define a struct Livro
 struct Livro {
     string titulo;
     int numeroPagina;
