@@ -12,6 +12,42 @@ struct Livro {
     int anoPublicacao;
 };
 
+
+void adicionarLivro(vector<Livro>& biblioteca) {
+    cout << "\n=== Adicionando Livros ===";
+    Livro novoLivro;
+    cout << "\nDigite o titulo do livro: ";
+    cin.ignore();
+    getline(cin, novoLivro.titulo);
+    cout << "Digite o numero de paginas: ";
+    cin >> novoLivro.numeroPagina;
+    cin.ignore();
+    cout << "Digite o autor do livro: ";
+    getline(cin, novoLivro.autor);
+    cout << "Digite o ano de publicacao: ";
+    cin >> novoLivro.anoPublicacao;
+    biblioteca.push_back(novoLivro);
+    cout << "Livro adicionado com sucesso!\n";
+}
+
+
+void listarLivros(const vector<Livro>& biblioteca) {
+    cout << "\n=== Listando Livros ===";
+    if (biblioteca.empty()) {
+        cout << "\nBiblioteca vazia!";
+    } else {
+        cout << "\nLivros na Biblioteca:";
+        for (const auto& livro : biblioteca) {
+            cout << "\n- Titulo: " << livro.titulo;
+            cout << "\n  Numero de Paginas: " << livro.numeroPagina;
+            cout << "\n  Autor: " << livro.autor;
+            cout << "\n  Ano de Publicacao: " << livro.anoPublicacao << endl;
+        }
+    }
+    cout << endl;
+}
+
+
 void atualizarTituloLivro(vector<Livro>& biblioteca) {
     cout << "\n=== Atualizando titulo do Livro ===";
     string tituloAtual, novoTitulo;
