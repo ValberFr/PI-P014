@@ -9,7 +9,13 @@ struct CPU {
 
 
 
-
+struct Computador {
+    CPU processador;
+    RAM memoria;
+    Armazenamento disco;
+    GPU placaDeVideo;
+    SistemaOperacional sistema;
+};
 
 int main() {
     Computador meuPc = {
