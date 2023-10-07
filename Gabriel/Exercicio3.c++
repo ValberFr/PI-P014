@@ -78,5 +78,6 @@ do
     cin >> continuar;
     cout << endl;   
 } while (continuar == 'S' || continuar == 's');
+    
     return 0;
 }
