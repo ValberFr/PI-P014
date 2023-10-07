@@ -5,13 +5,13 @@
 
 using namespace std;
 
+// Define a struct Livro
 struct Livro {
     string titulo;
     int numeroPagina;
     string autor;
     int anoPublicacao;
 };
-
 
 void adicionarLivro(vector<Livro>& biblioteca) {
     cout << "\n=== Adicionando Livros ===";
@@ -30,7 +30,6 @@ void adicionarLivro(vector<Livro>& biblioteca) {
     cout << "Livro adicionado com sucesso!\n";
 }
 
-
 void listarLivros(const vector<Livro>& biblioteca) {
     cout << "\n=== Listando Livros ===";
     if (biblioteca.empty()) {
@@ -47,20 +46,20 @@ void listarLivros(const vector<Livro>& biblioteca) {
     cout << endl;
 }
 
-
-void atualizarTituloLivro(vector<Livro>& biblioteca) {
-    cout << "\n=== Atualizando titulo do Livro ===";
-    string tituloAtual, novoTitulo;
-    cout << "\nDigite o titulo atual do livro: ";
+void pesquisarLivro(const vector<Livro>& biblioteca) {
+    cout << "\n=== Pesquisando Livro ===";
+    string titulo;
+    cout << "\nDigite o titulo do livro a ser pesquisado: ";
     cin.ignore();
-    getline(cin, tituloAtual);
-    for (auto& livro : biblioteca) {
-        if (livro.titulo == tituloAtual) {
-            cout << "\nDigite o novo titulo para o livro: ";
-            getline(cin, novoTitulo);
-            livro.titulo = novoTitulo;
-            cout << "Titulo atualizado com sucesso!\n";
-            return;  // Encerra a função depois da atualizacao
+    getline(cin, titulo);
+    for (const auto& livro : biblioteca) {
+        if (livro.titulo == titulo) {
+            cout << "Livro encontrado:\n";
+            cout << "Titulo: " << livro.titulo << endl;
+            cout << "Numero de Paginas: " << livro.numeroPagina << endl;
+            cout << "Autor: " << livro.autor << endl;
+            cout << "Ano de Publicacao: " << livro.anoPublicacao << endl;
+            return;  // Encerra a função quando o livro é encontrado
         }
     }
     cout << "Livro nao encontrado!\n";
@@ -82,6 +81,23 @@ void removerLivro(vector<Livro>& biblioteca) {
     cout << "Livro nao encontrado!\n";
 }
 
+void atualizarTituloLivro(vector<Livro>& biblioteca) {
+    cout << "\n=== Atualizando titulo do Livro ===";
+    string tituloAtual, novoTitulo;
+    cout << "\nDigite o titulo atual do livro: ";
+    cin.ignore();
+    getline(cin, tituloAtual);
+    for (auto& livro : biblioteca) {
+        if (livro.titulo == tituloAtual) {
+            cout << "\nDigite o novo titulo para o livro: ";
+            getline(cin, novoTitulo);
+            livro.titulo = novoTitulo;
+            cout << "Titulo atualizado com sucesso!\n";
+            return;  // Encerra a função depois da atualizacao
+        }
+    }
+    cout << "Livro nao encontrado!\n";
+}
 
 int main() {
     vector<Livro> biblioteca;
@@ -127,6 +143,3 @@ int main() {
 
     return 0;
 }
-
-
-
